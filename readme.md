@@ -98,6 +98,14 @@ Navigate back to the root directory and build the Docker image:
 
 ```bash
 az acr login --name <ACR_NAME>
+
+az acr build \
+  --registry <ACR_NAME> \
+  --image azure-devops-agent:latest \
+  --file Dockerfile .
+
+// oder
+
 docker build -t <ACR_NAME>.azurecr.io/azure-devops-agent:latest .
 docker push <ACR_NAME>.azurecr.io/azure-devops-agent:latest
 ```
