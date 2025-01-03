@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-devops-agent
+  namespace: azure-devops-agents
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: azure-devops-agent
+  template:
+    metadata:
+      labels:
+        app: azure-devops-agent
+    spec:
+      containers:
+      - name: azure-devops-agent
+        image: <ACR_NAME>.azurecr.io/azure-devops-agent:latest
+        env:
+        - name: AZP_URL
+          value: "https://dev.azure.com/<Organization>"
+        - name: AZP_TOKEN
+          value: "<PersonalAccessToken>"
+        - name: AZP_POOL
+          value: "Kubernetes-Pool"
+        resources:
+          limits:
+            cpu: "2"
+            memory: "4Gi"
+          requests:
+            cpu: "1"
+            memory: "2Gi" 
