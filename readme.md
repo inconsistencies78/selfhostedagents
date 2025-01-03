@@ -154,3 +154,8 @@ kubectl autoscale deployment azure-devops-agent \
 ## Notes
 - Ensure the personal access token (PAT) is secure and rotated periodically.
 - Monitor costs for the AKS cluster and ACR based on usage.
+
+---
+
+## Sources
+- https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/docker?view=azure-devops
